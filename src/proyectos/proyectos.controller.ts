@@ -10,7 +10,9 @@ import {
 import { ProyectosService } from './proyectos.service';
 import { CreateProyectoDto } from './dto/create-proyecto.dto';
 import { UpdateProyectoDto } from './dto/update-proyecto.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Proyectos')
 @Controller('proyectos')
 export class ProyectosController {
   constructor(private readonly proyectosService: ProyectosService) {}

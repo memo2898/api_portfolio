@@ -12,9 +12,9 @@ export class ProyectosService {
     private proyectoRepository: Repository<Proyecto>,
   ) {}
 
-  create(createProyectoDto: CreateProyectoDto) {
+  async create(createProyectoDto: CreateProyectoDto) {
     const nuevo = this.proyectoRepository.create(createProyectoDto);
-    return this.proyectoRepository.save(nuevo);
+    return await this.proyectoRepository.save(nuevo);
   }
 
   async findAll() {

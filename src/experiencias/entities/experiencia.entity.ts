@@ -1,27 +1,27 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('tblm_habilidades')
-export class Habilidade {
+@Entity('tblm_experiencias')
+export class Experiencia {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  id_tipo_habilidad: number;
+  posicion: string;
 
   @Column()
-  habilidad: string;
+  institucion: string;
+
+  @Column()
+  pais: string;
 
   @Column()
   descripcion: string;
 
   @Column()
-  imagen: string;
+  fecha_inicio: string;
 
   @Column()
-  imagen_alt: string;
-
-  @Column()
-  tiempo_experiencia: string;
+  fecha_fin: string;
 
   @Column()
   agregado_por: string;
