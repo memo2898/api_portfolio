@@ -1,10 +1,14 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 
 export class CreateProyectoDto {
   @ApiProperty({ example: 'Sistema de Gestión de Residuos Sólidos' })
   @IsString()
   nombre: string;
+
+  @ApiProperty({ example: '2' })
+  @IsNumber()
+  id_experiencia: number;
 
   @ApiProperty({ example: 'Este sistema se basó en ...' })
   @IsString()

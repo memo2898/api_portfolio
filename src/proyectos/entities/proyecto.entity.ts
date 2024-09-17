@@ -1,9 +1,23 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Experiencia } from 'src/experiencias/entities/experiencia.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity('tblm_proyectos')
 export class Proyecto {
   @PrimaryGeneratedColumn()
   id: number;
+
+  @Column()
+  id_experiencia: number;
+
+  @ManyToOne(() => Experiencia, (experiencia) => experiencia, { eager: true })
+  @JoinColumn({ name: 'id_experiencia' })
+  experiencia: Experiencia;
 
   @Column()
   nombre: string;

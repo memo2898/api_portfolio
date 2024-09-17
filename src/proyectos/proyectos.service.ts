@@ -14,7 +14,10 @@ export class ProyectosService {
 
   async create(createProyectoDto: CreateProyectoDto) {
     const nuevo = this.proyectoRepository.create(createProyectoDto);
-    return await this.proyectoRepository.save(nuevo);
+    const guardando = await this.proyectoRepository.save(nuevo);
+    const id = guardando.id;
+
+    return await this.proyectoRepository.findBy({ id: id });
   }
 
   async findAll() {

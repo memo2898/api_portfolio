@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Proyecto } from 'src/proyectos/entities/proyecto.entity';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity('tblm_experiencias')
 export class Experiencia {
@@ -34,4 +35,7 @@ export class Experiencia {
 
   @Column()
   modificado_en: string;
+
+  @OneToMany(() => Proyecto, (proyecto) => proyecto.id_experiencia)
+  proyecto: Proyecto[];
 }
