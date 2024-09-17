@@ -1,23 +1,35 @@
 import { Injectable } from '@nestjs/common';
 import { CreateBtnOpcioneDto } from './dto/create-btn_opcione.dto';
 import { UpdateBtnOpcioneDto } from './dto/update-btn_opcione.dto';
+import { Repository } from 'typeorm';
+import { BtnOpcione } from './entities/btn_opcione.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class BtnOpcionesService {
-  create(createBtnOpcioneDto: CreateBtnOpcioneDto) {
-    return 'This action adds a new btnOpcione';
+  constructor(
+    @InjectRepository(BtnOpcione)
+    private btnOpcionesRepository: Repository<BtnOpcione>,
+  ) {}
+
+  async create(createBtnOpcioneDto: CreateBtnOpcioneDto) {
+    const creando = this.btnOpcionesRepository.create(createBtnOpcioneDto);
+    const guardando = await this.btnOpcionesRepository.save(creando);
+
+    return await this.btnOpcionesRepository.findBy({ id: guardando.id });
   }
 
-  findAll() {
-    return `This action returns all btnOpciones`;
+  async findAll() {
+    return await this.btnOpcionesRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} btnOpcione`;
+  async findOne(id: number) {
+    return await this.btnOpcionesRepository.findBy({ id });
   }
 
-  update(id: number, updateBtnOpcioneDto: UpdateBtnOpcioneDto) {
-    return `This action updates a #${id} btnOpcione`;
+  async update(id: number, updateBtnOpcioneDto: UpdateBtnOpcioneDto) {
+    await this.btnOpcionesRepository.update(id, updateBtnOpcioneDto);
+    return await this.btnOpcionesRepository.findBy({ id });
   }
 
   remove(id: number) {
