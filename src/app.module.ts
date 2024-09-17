@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProyectosModule } from './proyectos/proyectos.module';
 import { ExperienciasModule } from './experiencias/experiencias.module';
+import { BtnOpcionesModule } from './btn_opciones/btn_opciones.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ExperienciasModule } from './experiencias/experiencias.module';
     }),
     ProyectosModule,
     ExperienciasModule,
+    BtnOpcionesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
