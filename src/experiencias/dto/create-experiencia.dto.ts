@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class CreateExperienciaDto {
   @ApiProperty({ example: 'Desarrollador jr' })
@@ -33,4 +33,9 @@ export class CreateExperienciaDto {
   @ApiProperty({ example: '2020-01-01' })
   @IsString()
   agregado_en: string;
+
+  @ApiProperty({ example: 'Activo' })
+  @IsString()
+  @IsOptional()
+  estado: string;
 }

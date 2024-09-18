@@ -1,9 +1,11 @@
+import { BtnsXProyecto } from 'src/btns_x_proyectos/entities/btns_x_proyecto.entity';
 import { Experiencia } from 'src/experiencias/entities/experiencia.entity';
 import {
   Column,
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -39,4 +41,10 @@ export class Proyecto {
 
   @Column()
   modificado_en: string;
+
+  @Column()
+  estado: string;
+
+  @OneToOne(() => BtnsXProyecto, (btnsXProyecto) => btnsXProyecto) //Relacion anidada
+  btnsXProyecto: BtnsXProyecto;
 }

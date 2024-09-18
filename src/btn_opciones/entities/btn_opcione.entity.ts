@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BtnsXProyecto } from 'src/btns_x_proyectos/entities/btns_x_proyecto.entity';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('tblm_btn_opciones')
 export class BtnOpcione {
@@ -22,4 +23,10 @@ export class BtnOpcione {
 
   @Column()
   modificado_en: string;
+
+  @Column()
+  estado: string;
+
+  @OneToOne(() => BtnsXProyecto, (btnsXProyecto) => btnsXProyecto) //Relacion anidada
+  btnsXProyecto: BtnsXProyecto;
 }

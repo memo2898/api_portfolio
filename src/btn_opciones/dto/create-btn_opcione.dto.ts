@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class CreateBtnOpcioneDto {
   @ApiProperty({ example: 'GitHub' })
@@ -21,4 +21,9 @@ export class CreateBtnOpcioneDto {
   @IsString()
   @IsNotEmpty()
   agregado_en: string;
+
+  @ApiProperty({ example: 'Activo' })
+  @IsString()
+  @IsOptional()
+  estado: string;
 }

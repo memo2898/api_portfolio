@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNumber, IsString } from 'class-validator';
+import { IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateProyectoDto {
   @ApiProperty({ example: 'Sistema de Gestión de Residuos Sólidos' })
@@ -25,4 +25,9 @@ export class CreateProyectoDto {
   @ApiProperty({ example: '2020-01-01' })
   @IsString()
   agregado_en: string;
+
+  @ApiProperty({ example: 'Activo' })
+  @IsString()
+  @IsOptional()
+  estado: string;
 }

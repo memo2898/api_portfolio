@@ -36,6 +36,9 @@ export class Experiencia {
   @Column()
   modificado_en: string;
 
+  @Column()
+  estado: string;
+
   @OneToMany(() => Proyecto, (proyecto) => proyecto.id_experiencia)
   proyecto: Proyecto[];
 }
