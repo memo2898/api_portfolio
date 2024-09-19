@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { TiposHabilidade } from 'src/tipos_habilidades/entities/tipos_habilidade.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity('tblm_habilidades')
 export class Habilidade {
@@ -7,6 +14,12 @@ export class Habilidade {
 
   @Column()
   id_tipo_habilidad: number;
+
+  @OneToOne(() => TiposHabilidade, (tipo_habilidad) => tipo_habilidad, {
+    eager: true,
+  })
+  @JoinColumn({ name: 'id_tipo_habilidad' })
+  tipo_habilidad: TiposHabilidade;
 
   @Column()
   habilidad: string;

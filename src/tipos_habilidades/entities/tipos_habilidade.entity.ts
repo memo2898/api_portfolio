@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Habilidade } from 'src/habilidades/entities/habilidade.entity';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('tblm_tipos_habilidades')
 export class TiposHabilidade {
@@ -25,4 +26,7 @@ export class TiposHabilidade {
 
   @Column()
   estado: string;
+
+  @OneToOne(() => Habilidade, (habilidad) => habilidad)
+  habilidad: Habilidade;
 }
