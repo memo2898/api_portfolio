@@ -25,7 +25,8 @@ export class ExperienciasService {
     return await this.experienciaRepository.findBy({ id });
   }
   async update(id: number, updateExperienciaDto: UpdateExperienciaDto) {
-    return this.experienciaRepository.update(id, updateExperienciaDto);
+    await this.experienciaRepository.update(id, updateExperienciaDto);
+    return await this.experienciaRepository.findBy({ id });
   }
 
   async remove(id: number) {
