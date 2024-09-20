@@ -9,6 +9,7 @@ import { BtnsXProyectosModule } from './btns_x_proyectos/btns_x_proyectos.module
 import { TiposHabilidadesModule } from './tipos_habilidades/tipos_habilidades.module';
 import { HabilidadesModule } from './habilidades/habilidades.module';
 import { HabilidadesXProyectosModule } from './habilidades_x_proyectos/habilidades_x_proyectos.module';
+import { BloquesMultimediaModule } from './bloques_multimedia/bloques_multimedia.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { HabilidadesXProyectosModule } from './habilidades_x_proyectos/habilidad
     TiposHabilidadesModule,
     HabilidadesModule,
     HabilidadesXProyectosModule,
+    BloquesMultimediaModule,
   ],
   controllers: [AppController],
   providers: [AppService],

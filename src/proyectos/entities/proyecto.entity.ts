@@ -1,5 +1,6 @@
 import { BtnsXProyecto } from 'src/btns_x_proyectos/entities/btns_x_proyecto.entity';
 import { Experiencia } from 'src/experiencias/entities/experiencia.entity';
+import { HabilidadesXProyecto } from 'src/habilidades_x_proyectos/entities/habilidades_x_proyecto.entity';
 import {
   Column,
   Entity,
@@ -47,4 +48,10 @@ export class Proyecto {
 
   @OneToOne(() => BtnsXProyecto, (btnsXProyecto) => btnsXProyecto) //Relacion anidada
   btnsXProyecto: BtnsXProyecto;
+
+  @OneToOne(
+    () => HabilidadesXProyecto,
+    (HabilidadesXProyecto) => HabilidadesXProyecto,
+  ) //Relacion anidada
+  HabilidadesXProyecto: HabilidadesXProyecto;
 }

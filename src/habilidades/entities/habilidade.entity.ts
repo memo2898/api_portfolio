@@ -1,3 +1,4 @@
+import { HabilidadesXProyecto } from 'src/habilidades_x_proyectos/entities/habilidades_x_proyecto.entity';
 import { TiposHabilidade } from 'src/tipos_habilidades/entities/tipos_habilidade.entity';
 import {
   Column,
@@ -50,4 +51,10 @@ export class Habilidade {
 
   @Column()
   modificado_en: string;
+
+  @OneToOne(
+    () => HabilidadesXProyecto,
+    (HabilidadesXProyecto) => HabilidadesXProyecto,
+  ) //Relacion anidada
+  HabilidadesXProyecto: HabilidadesXProyecto;
 }
