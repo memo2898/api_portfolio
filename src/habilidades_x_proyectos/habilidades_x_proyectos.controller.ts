@@ -1,15 +1,29 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { HabilidadesXProyectosService } from './habilidades_x_proyectos.service';
 import { CreateHabilidadesXProyectoDto } from './dto/create-habilidades_x_proyecto.dto';
 import { UpdateHabilidadesXProyectoDto } from './dto/update-habilidades_x_proyecto.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Habilidades x Proyectos')
 @Controller('habilidades-x-proyectos')
 export class HabilidadesXProyectosController {
-  constructor(private readonly habilidadesXProyectosService: HabilidadesXProyectosService) {}
+  constructor(
+    private readonly habilidadesXProyectosService: HabilidadesXProyectosService,
+  ) {}
 
   @Post()
   create(@Body() createHabilidadesXProyectoDto: CreateHabilidadesXProyectoDto) {
-    return this.habilidadesXProyectosService.create(createHabilidadesXProyectoDto);
+    return this.habilidadesXProyectosService.create(
+      createHabilidadesXProyectoDto,
+    );
   }
 
   @Get()
@@ -23,8 +37,14 @@ export class HabilidadesXProyectosController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateHabilidadesXProyectoDto: UpdateHabilidadesXProyectoDto) {
-    return this.habilidadesXProyectosService.update(+id, updateHabilidadesXProyectoDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateHabilidadesXProyectoDto: UpdateHabilidadesXProyectoDto,
+  ) {
+    return this.habilidadesXProyectosService.update(
+      +id,
+      updateHabilidadesXProyectoDto,
+    );
   }
 
   @Delete(':id')

@@ -1,23 +1,43 @@
 import { Injectable } from '@nestjs/common';
 import { CreateHabilidadesXProyectoDto } from './dto/create-habilidades_x_proyecto.dto';
 import { UpdateHabilidadesXProyectoDto } from './dto/update-habilidades_x_proyecto.dto';
+import { Repository } from 'typeorm';
+import { HabilidadesXProyecto } from './entities/habilidades_x_proyecto.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class HabilidadesXProyectosService {
-  create(createHabilidadesXProyectoDto: CreateHabilidadesXProyectoDto) {
-    return 'This action adds a new habilidadesXProyecto';
+  constructor(
+    @InjectRepository(HabilidadesXProyecto)
+    private habilidadesXProyectosRepository: Repository<HabilidadesXProyecto>,
+  ) {}
+  async create(createHabilidadesXProyectoDto: CreateHabilidadesXProyectoDto) {
+    const crear = this.habilidadesXProyectosRepository.create(
+      createHabilidadesXProyectoDto,
+    );
+
+    const guardar = await this.habilidadesXProyectosRepository.save(crear);
+
+    return guardar;
   }
 
-  findAll() {
-    return `This action returns all habilidadesXProyectos`;
+  async findAll() {
+    return await this.habilidadesXProyectosRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} habilidadesXProyecto`;
+  async findOne(id: number) {
+    return await this.habilidadesXProyectosRepository.findBy({ id });
   }
 
-  update(id: number, updateHabilidadesXProyectoDto: UpdateHabilidadesXProyectoDto) {
-    return `This action updates a #${id} habilidadesXProyecto`;
+  async update(
+    id: number,
+    updateHabilidadesXProyectoDto: UpdateHabilidadesXProyectoDto,
+  ) {
+    await this.habilidadesXProyectosRepository.update(
+      id,
+      updateHabilidadesXProyectoDto,
+    );
+    return await this.habilidadesXProyectosRepository.findBy({ id });
   }
 
   remove(id: number) {
