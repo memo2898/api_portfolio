@@ -8,6 +8,7 @@ import { BtnOpcionesModule } from './btn_opciones/btn_opciones.module';
 import { BtnsXProyectosModule } from './btns_x_proyectos/btns_x_proyectos.module';
 import { TiposHabilidadesModule } from './tipos_habilidades/tipos_habilidades.module';
 import { HabilidadesModule } from './habilidades/habilidades.module';
+import { HabilidadesXProyectosModule } from './habilidades_x_proyectos/habilidades_x_proyectos.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { HabilidadesModule } from './habilidades/habilidades.module';
     BtnsXProyectosModule,
     TiposHabilidadesModule,
     HabilidadesModule,
+    HabilidadesXProyectosModule,
   ],
   controllers: [AppController],
   providers: [AppService],
