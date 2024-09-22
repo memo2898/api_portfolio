@@ -1,11 +1,23 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ContenidoMultimediaService } from './contenido_multimedia.service';
 import { CreateContenidoMultimediaDto } from './dto/create-contenido_multimedia.dto';
 import { UpdateContenidoMultimediaDto } from './dto/update-contenido_multimedia.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Contenido Multimedia')
 @Controller('contenido-multimedia')
 export class ContenidoMultimediaController {
-  constructor(private readonly contenidoMultimediaService: ContenidoMultimediaService) {}
+  constructor(
+    private readonly contenidoMultimediaService: ContenidoMultimediaService,
+  ) {}
 
   @Post()
   create(@Body() createContenidoMultimediaDto: CreateContenidoMultimediaDto) {
@@ -23,8 +35,14 @@ export class ContenidoMultimediaController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateContenidoMultimediaDto: UpdateContenidoMultimediaDto) {
-    return this.contenidoMultimediaService.update(+id, updateContenidoMultimediaDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateContenidoMultimediaDto: UpdateContenidoMultimediaDto,
+  ) {
+    return this.contenidoMultimediaService.update(
+      +id,
+      updateContenidoMultimediaDto,
+    );
   }
 
   @Delete(':id')
