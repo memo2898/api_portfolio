@@ -12,6 +12,7 @@ import { HabilidadesXProyectosModule } from './habilidades_x_proyectos/habilidad
 import { BloquesMultimediaModule } from './bloques_multimedia/bloques_multimedia.module';
 import { ContenidoMultimediaModule } from './contenido_multimedia/contenido_multimedia.module';
 import { EducacionModule } from './educacion/educacion.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { EducacionModule } from './educacion/educacion.module';
     BloquesMultimediaModule,
     ContenidoMultimediaModule,
     EducacionModule,
+    UsuariosModule,
   ],
   controllers: [AppController],
   providers: [AppService],
