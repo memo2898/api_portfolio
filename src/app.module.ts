@@ -11,6 +11,7 @@ import { HabilidadesModule } from './habilidades/habilidades.module';
 import { HabilidadesXProyectosModule } from './habilidades_x_proyectos/habilidades_x_proyectos.module';
 import { BloquesMultimediaModule } from './bloques_multimedia/bloques_multimedia.module';
 import { ContenidoMultimediaModule } from './contenido_multimedia/contenido_multimedia.module';
+import { EducacionModule } from './educacion/educacion.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { ContenidoMultimediaModule } from './contenido_multimedia/contenido_mult
     HabilidadesXProyectosModule,
     BloquesMultimediaModule,
     ContenidoMultimediaModule,
+    EducacionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
