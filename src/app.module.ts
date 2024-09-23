@@ -13,6 +13,7 @@ import { BloquesMultimediaModule } from './bloques_multimedia/bloques_multimedia
 import { ContenidoMultimediaModule } from './contenido_multimedia/contenido_multimedia.module';
 import { EducacionModule } from './educacion/educacion.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     ContenidoMultimediaModule,
     EducacionModule,
     UsuariosModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

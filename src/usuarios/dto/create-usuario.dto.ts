@@ -33,7 +33,7 @@ export class CreateUsuarioDto {
   @IsNotEmpty()
   estado: string;
 
-  @ApiProperty({ example: 'Ademins' })
+  @ApiProperty({ example: 'Admin' })
   @IsString()
   @IsNotEmpty()
   agregado_por: string;
