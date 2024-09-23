@@ -14,12 +14,12 @@ import { UpdateProyectoDto } from './dto/update-proyecto.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
-@UseGuards(JwtAuthGuard)
 @ApiTags('Proyectos')
 @Controller('proyectos')
 export class ProyectosController {
   constructor(private readonly proyectosService: ProyectosService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   create(@Body() createProyectoDto: CreateProyectoDto) {
     return this.proyectosService.create(createProyectoDto);
@@ -35,6 +35,7 @@ export class ProyectosController {
     return this.proyectosService.findOne(+id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Patch(':id')
   update(
     @Param('id') id: number,

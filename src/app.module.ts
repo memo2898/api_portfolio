@@ -14,6 +14,7 @@ import { ContenidoMultimediaModule } from './contenido_multimedia/contenido_mult
 import { EducacionModule } from './educacion/educacion.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { AuthModule } from './auth/auth.module';
+import { UploadsModule } from './uploads/uploads.module';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { AuthModule } from './auth/auth.module';
     EducacionModule,
     UsuariosModule,
     AuthModule,
+    UploadsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
