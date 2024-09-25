@@ -21,6 +21,9 @@ export class Usuario {
   apellidos: string;
 
   @Column()
+  rol: string;
+
+  @Column()
   estado: string;
 
   @Column()

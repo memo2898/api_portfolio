@@ -6,8 +6,8 @@ import { JwtService } from '@nestjs/jwt';
 @Injectable()
 export class AuthService {
   constructor(
-    private readonly usersService: UsuariosService, // Injecting service directly
-    private readonly jwtService: JwtService, // Inject JWT service to generate tokens
+    private readonly usersService: UsuariosService,
+    private readonly jwtService: JwtService,
   ) {}
 
   async signIn(username: string, pass: string) {
@@ -22,7 +22,7 @@ export class AuthService {
     }
 
     const payload = { username: user.username, sub: user.id };
-    const token = this.jwtService.sign(payload);
+    const token = this.jwtService.sign(payload); // Aquí debería funcionar si el JwtModule está configurado correctamente
 
     const usuario = await this.usersService.findOne(user.id);
 

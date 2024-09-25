@@ -28,6 +28,11 @@ export class CreateUsuarioDto {
   @IsNotEmpty()
   apellidos: string;
 
+  @ApiProperty({ example: 'Administrador' })
+  @IsString()
+  @IsNotEmpty()
+  rol: string;
+
   @ApiProperty({ example: 'Activo' })
   @IsString()
   @IsNotEmpty()
