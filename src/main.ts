@@ -2,8 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { join } from 'path'; // Asegúrate de importar join
-import { NestExpressApplication } from '@nestjs/platform-express'; // Asegúrate de importar esto
+import { join } from 'path';
+import { NestExpressApplication } from '@nestjs/platform-express';
 
 async function bootstrap() {
   //const app = await NestFactory.create(AppModule);
@@ -17,6 +17,7 @@ async function bootstrap() {
     }),
   );
 
+  app.enableCors(); // Esto permite todas las solicitudes CORS
   // Configura la carpeta estática
   app.useStaticAssets(join(__dirname, '..', 'uploads'), {
     prefix: '/uploads/', // Permite acceder a los archivos desde http://localhost:3000/uploads/
@@ -29,7 +30,7 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-  await app.listen(3000);
+  await app.listen(3007);
 }
 
 bootstrap();
